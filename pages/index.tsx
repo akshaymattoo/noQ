@@ -23,7 +23,7 @@ export default function Home() {
   </Flex>*/}
     <Flex direction="column" textAlign="center" alignItems="center" justifyContent="center" height="100vh">
       <Flex direction="column" background={formBg} p={12} rounded={6}>
-        <Heading as="h1" size="4xl" isTruncated>
+        <Heading as="h1" size="2xl" isTruncated>
           Welcome to noQ
         </Heading>
         <Heading as="h4" size="md" mt="4">
