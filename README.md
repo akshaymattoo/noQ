@@ -1,4 +1,5 @@
 ![](./public/token.png)
+
 **noQ** is project to generate unique token for customers. With this we can maintain social distance and not loose a customer. It is not confined to groceries, restaurants etc only. It can be applied to any queue based system like hospitals, going back to work etc etc.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
