@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import QRCode from "react-qr-code"
+import Header from '../../components/Header';
 import styles from '../../styles/Home.module.css'
 
 export default function Car({ data }) {
@@ -10,6 +11,7 @@ export default function Car({ data }) {
     console.log(code)
     return (
         <div className={styles.container}>
+        <Header/>
             <Head>
                 <title>{data.name} {data.number}</title>
             </Head>

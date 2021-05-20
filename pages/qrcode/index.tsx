@@ -4,6 +4,7 @@ import axios from 'axios';
 import {Flex,Heading,Input,Button,InputGroup,useColorModeValue,InputLeftElement,InputRightElement,Stack} from '@chakra-ui/react';
 import { PhoneIcon} from '@chakra-ui/icons';
 import Header from '../../components/Header';
+import styles from '../../styles/Home.module.css'
 
 export default function Home() {
   const router = useRouter();
@@ -22,7 +23,7 @@ export default function Home() {
       router.push('/');
   }
   return (
-    <>
+    <div className={styles.container}>
     <Header />
     <Flex alignItems="center" justifyContent="center" height="100vh">
       <Flex direction="column" background={formBg} p={12} rounded={6}>
@@ -49,6 +50,6 @@ export default function Home() {
         
       </Flex>
     </Flex>
-    </>
+    </div>
    )
 }

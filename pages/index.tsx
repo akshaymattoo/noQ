@@ -8,7 +8,10 @@ export default function Home() {
   const formBg = useColorModeValue("gray.100","gray.700")
   const router = useRouter();
   return (
-    <>
+    <div className={styles.container}>
+    <Head>
+      <title>noQ</title>
+    </Head>
    <Header/>
     {/*<Flex alignItems="center" justifyContent="center" height="100vh">
       <Flex direction="column" background={formBg} p={12} rounded={6}>
@@ -32,6 +35,6 @@ export default function Home() {
           Generate qrCode
         </Button>
     </Flex>
-    </>
+    </div>
    )
 }
