@@ -16,7 +16,7 @@ export default function Home() {
       // here I will make a DB call to save info in mongo
       const {data} = await axios({
         method: 'post',
-        url: '/api/qrcode',
+        url: 'http://localhost:5000/api/qrcodes',
         data: {name:name,number:num}
       });
       console.log(data);
