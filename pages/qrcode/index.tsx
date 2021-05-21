@@ -19,7 +19,6 @@ export default function Home() {
         url: 'http://localhost:5000/api/qrcodes',
         data: {name:name,number:num}
       });
-      console.log(data);
       router.push('/');
   }
   return (

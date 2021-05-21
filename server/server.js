@@ -32,6 +32,7 @@ app.get("/", (req, res) => {
   });
 });
 
+// Fetch the specific code from db
 app.get("/api/qrcodes/:code", async (req, res) => {
   try{
     const code = req.params.code;
@@ -45,6 +46,7 @@ app.get("/api/qrcodes/:code", async (req, res) => {
   }
 });
 
+// Add an entry in DB
 app.post("/api/qrcodes", (req, res) => {
     const body = req.body;
     const qrcode = new QRCode(
@@ -64,6 +66,8 @@ app.post("/api/qrcodes", (req, res) => {
         res.json({success:true})
     });
 });
+
+// generated a 6 digit code.
 function makeid(length) {
     var result           = [];
     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
