@@ -9,6 +9,14 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
+nodemon server.js
+# or
+node server.js
+```
+
+To start client, run :
+
+```bash
 npm run dev
 # or
 yarn dev
