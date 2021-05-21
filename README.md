@@ -6,6 +6,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Make sure you have a running mongodb on your machine or somewhere. Make the change in server/server.js file for connection URL.
 First, run the development server:
 
 ```bash
