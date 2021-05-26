@@ -53,6 +53,7 @@ app.post("/api/qrcodes", (req, res) => {
         { 
             name: body.name,
             number:body.number,
+            waitingTime:body.waitingTime,
             code:makeid(6) ,
             createdAt:new Date().toUTCString()
         }

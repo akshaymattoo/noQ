@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 const QRCodeSchema = new Schema({
     name: { type: String, required: true },
     number: { type:String , required: true },
+    waitingTime: { type:Number , required: true },
     code : {type:String, required:true},
     createdAt: {
       type: Date,

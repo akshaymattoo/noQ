@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import {Flex,Button,useColorMode} from '@chakra-ui/react'
 import { Icon} from '@chakra-ui/icons';
 import {FcHome} from 'react-icons/fc';
+import { IoIosQrScanner } from "react-icons/io";
 import { BsSun,BsMoon } from "react-icons/bs";
 const Header = () => {
     const { colorMode, toggleColorMode } = useColorMode();
@@ -10,8 +11,9 @@ const Header = () => {
     return (
         <div>
         <Flex m={3} justifyContent="flex-end">
-            <Button leftIcon={<Icon as={FcHome} />} mr="3" size="xs" onClick={()=>{router.push('/')}}>Home</Button>
-            <Button leftIcon={icon} size="xs" onClick={toggleColorMode}>
+            <Button leftIcon={<Icon as={FcHome} />} mr="3" size="md" onClick={()=>{router.push('/')}}>Home</Button>
+            <Button leftIcon={<Icon as={IoIosQrScanner} />} mr="3" size="md" onClick={()=>{router.push('/scan')}}>Scan</Button>
+            <Button leftIcon={icon} size="md" onClick={toggleColorMode}>
                 {colorMode === "light" ? "Dark" : "Light"}
             </Button>
             </Flex>
