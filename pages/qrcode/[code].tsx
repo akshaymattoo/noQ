@@ -26,8 +26,11 @@ export default function Code({ data }) {
 
 export async function getServerSideProps({ params }) {
     console.log("--getServerSideProps--")
-    console.log(params)
-    const req = await fetch(`http://localhost:5000/api/qrcodes/${params.code}`);
+    let server = "http://localhost:3000"
+    if(process.env.NODE_ENV !== 'production'){
+        server = "https://noq-xi.vercel.app"
+    }
+    const req = await fetch(`${server}/api/qrcodes/${params.code}`);
     const data = await req.json();
     console.log(data);
     return {

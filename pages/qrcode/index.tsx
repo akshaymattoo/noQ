@@ -20,7 +20,7 @@ export default function Home() {
       console.log( {name:name,number:num,waitingTime:waitingTime})
       const {data} = await axios({
         method: 'post',
-        url: 'http://localhost:5000/api/qrcodes',
+        url: '/api/qrcodes',
         data: {name:name,number:num,waitingTime:waitingTime}
       });
       console.log(JSON.stringify(data,null,2));

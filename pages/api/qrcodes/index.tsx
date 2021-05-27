@@ -5,6 +5,16 @@ const MongoClient = require('mongodb').MongoClient
 // Create cached connection variable
 let cachedDb = null
 
+function makeid(length) {
+  var result           = [];
+  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var charactersLength = characters.length;
+  for ( var i = 0; i < length; i++ ) {
+      result.push(characters.charAt(Math.floor(Math.random() * 
+      charactersLength)));
+ }
+ return result.join('');
+}
 // A function for connecting to MongoDB,
 // taking a single parameter of the connection string
 async function connectToDatabase(uri) {
@@ -29,17 +39,36 @@ async function connectToDatabase(uri) {
 // The main, exported, function of the endpoint,
 // dealing with the request and subsequent response
 export default async (req, res) => {
+
   // Get a database connection, cached or otherwise,
   // using the connection string environment variable as the argument
-  console.log(process.env.MONGODB_URI)
-  const db = await connectToDatabase(process.env.MONGODB_URI)
+  
+  if(req.method === "POST"){
+    const db = await connectToDatabase(process.env.MONGODB_URI)
 
-  // Select the "users" collection from the database
-  const collection = await db.collection('qrcodes')
-
+    // Select the "users" collection from the database
+    const collection = await db.collection('qrcodes')
+  
+    const body = req.body;
+    const doc = { 
+      name: body.name,
+      number:body.number,
+      waitingTime:body.waitingTime,
+      code:makeid(6) ,
+      createdAt:new Date().toUTCString()
+    }
+    collection.insertOne(doc)
+    .then( data => {
+      console.log(data.result.ok)
+      res.json({success:true})
+    })
+  }
+  
+/*
   // Select the users collection from the database
   const qrcodes = await collection.find({}).toArray()
 
   // Respond with a JSON string of all users in the collection
   res.status(200).json({ qrcodes })
+  */
 }
