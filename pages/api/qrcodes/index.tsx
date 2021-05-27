@@ -44,6 +44,7 @@ export default async (req, res) => {
   // using the connection string environment variable as the argument
   console.log("Inside POST to add to db")
   if(req.method === "POST"){
+    return new Promise(async (resolve, reject) => {
     const db = await connectToDatabase(process.env.MONGODB_URI)
 
     // Select the "users" collection from the database
@@ -61,7 +62,14 @@ export default async (req, res) => {
     .then( data => {
       console.log(data.result.ok)
       res.json({success:true})
+      resolve({success:true});
     })
+    .catch(error => {
+      res.json(error);
+      res.status(405).end();
+      return resolve({success:false}); //in case something goes wrong in the catch block (as vijay) commented
+    });
+  });
   }
   
 
