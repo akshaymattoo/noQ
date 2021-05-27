@@ -64,11 +64,10 @@ export default async (req, res) => {
     })
   }
   
-/*
-  // Select the users collection from the database
-  const qrcodes = await collection.find({}).toArray()
 
+   
+  if(req.method === "GET")
   // Respond with a JSON string of all users in the collection
-  res.status(200).json({ qrcodes })
-  */
+  res.status(200).json({ "qrcodes":"d" })
+   
 }
