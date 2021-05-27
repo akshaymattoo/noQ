@@ -17,10 +17,14 @@ export default function Home() {
   const qrCode = async () => {
       //SetCode()
       // here I will make a DB call to save info in mongo
+      let server = "http://localhost:3000"
+      if(process.env.NODE_ENV !== 'production'){
+          server = "https://noq-xi.vercel.app"
+      }
       console.log( {name:name,number:num,waitingTime:waitingTime})
       const {data} = await axios({
         method: 'post',
-        url: '/api/qrcodes',
+        url: `${server}/api/qrcodes`,
         data: {name:name,number:num,waitingTime:waitingTime}
       });
       console.log(JSON.stringify(data,null,2));
