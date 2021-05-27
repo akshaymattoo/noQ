@@ -22,7 +22,7 @@ async function connectToDatabase(uri) {
     return db
   }
 export default async (req, res) => {
-
+    console.log("Inside GET to fetch from db")
     if(req.method === "GET"){
         try{
             const db = await connectToDatabase(process.env.MONGODB_URI)
