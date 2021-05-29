@@ -31,7 +31,7 @@ export async function getServerSideProps({ params }) {
         server = "https://n0q.herokuapp.com"
     }
     server = "https://n0q.herokuapp.com"*/
-    const req = await fetch(`https://n0q.herokuapp.com//api/qrcodes/${params.code}`);
+    const req = await fetch(`https://n0q.herokuapp.com/api/qrcodes/${params.code}`);
     const data = await req.json();
     console.log(data);
     return {
