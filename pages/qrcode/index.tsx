@@ -17,15 +17,15 @@ export default function Home() {
   const qrCode = async () => {
       //SetCode()
       // here I will make a DB call to save info in mongo
-      let server = "http://localhost:3000"
+      /*let server = "http://localhost:3000"
       if(process.env.NODE_ENV !== 'production'){
           server = "https://n0q.herokuapp.com"
       }
-      server = "https://n0q.herokuapp.com"
+      server = "https://n0q.herokuapp.com"*/
       console.log( {name:name,number:num,waitingTime:waitingTime})
       const {data} = await axios({
         method: 'post',
-        url: `${server}/api/qrcodes`,
+        url: `https://n0q.herokuapp.com/api/qrcodes`,
         data: {name:name,number:num,waitingTime:waitingTime}
       });
       console.log(JSON.stringify(data,null,2));
