@@ -30,6 +30,7 @@ export async function getServerSideProps({ params }) {
     if(process.env.NODE_ENV !== 'production'){
         server = "https://n0q.herokuapp.com"
     }
+    server = "https://n0q.herokuapp.com"
     const req = await fetch(`${server}/api/qrcodes/${params.code}`);
     const data = await req.json();
     console.log(data);

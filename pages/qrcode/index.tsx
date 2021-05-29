@@ -21,6 +21,7 @@ export default function Home() {
       if(process.env.NODE_ENV !== 'production'){
           server = "https://n0q.herokuapp.com"
       }
+      server = "https://n0q.herokuapp.com"
       console.log( {name:name,number:num,waitingTime:waitingTime})
       const {data} = await axios({
         method: 'post',
