@@ -22,7 +22,12 @@ export default function Home() {
           server = "https://n0q.herokuapp.com"
       }
       server = "https://n0q.herokuapp.com"*/
-      console.log( {name:name,number:num,waitingTime:waitingTime})
+      const obj ={
+        method: 'post',
+        url: `https://n0q.herokuapp.com/api/qrcodes`,
+        data: {name:name,number:num,waitingTime:waitingTime}
+      }
+      console.log(obj)
       const {data} = await axios({
         method: 'post',
         url: `https://n0q.herokuapp.com/api/qrcodes`,
