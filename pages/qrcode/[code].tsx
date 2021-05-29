@@ -28,7 +28,7 @@ export async function getServerSideProps({ params }) {
     console.log("--getServerSideProps--")
     let server = "http://localhost:3000"
     if(process.env.NODE_ENV !== 'production'){
-        server = "https://noq-xi.vercel.app"
+        server = "https://n0q.herokuapp.com"
     }
     const req = await fetch(`${server}/api/qrcodes/${params.code}`);
     const data = await req.json();

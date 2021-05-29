@@ -19,7 +19,7 @@ export default function Home() {
       // here I will make a DB call to save info in mongo
       let server = "http://localhost:3000"
       if(process.env.NODE_ENV !== 'production'){
-          server = "https://noq-xi.vercel.app"
+          server = "https://n0q.herokuapp.com"
       }
       console.log( {name:name,number:num,waitingTime:waitingTime})
       const {data} = await axios({
