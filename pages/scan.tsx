@@ -17,7 +17,7 @@ const Scan = () => {
           delay={300}
           onError={handleError}
           onScan={handleScan}
-          style={{ width: '100%' }}
+          style={{ width: '60%' , height:'40%'}}
         />
         <p>{result}</p>
         </div>
