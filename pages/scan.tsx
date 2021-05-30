@@ -1,20 +1,25 @@
-import Webcam from "react-webcam";
+import { useState } from 'react'
+import QrReader from 'react-qr-reader'
 
 const Scan = () => {
-    const videoConstraints = {
-        width: { min: 480 },
-        height: { min: 720 },
-        aspectRatio: 0.6666666667,
-        facingMode: "environment"
-      };
+     const [result,setResult] = useState('No result');
+     const  handleScan = data => {
+        if (data) {
+          setResult(data)
+        }
+      }
+     const handleError = err => {
+        console.error(err)
+      }
     return (
         <div>
-            <h1>hello</h1>
-            <Webcam 
-                videoConstraints={videoConstraints} 
-                width={480} 
-                height={720}
-                />
+          <QrReader
+          delay={300}
+          onError={handleError}
+          onScan={handleScan}
+          style={{ width: '100%' }}
+        />
+        <p>{result}</p>
         </div>
     )
 }
