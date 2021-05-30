@@ -5,7 +5,7 @@ const Scan = () => {
         width: { min: 480 },
         height: { min: 720 },
         aspectRatio: 0.6666666667,
-        facingMode: "forward"
+        facingMode: "environment"
       };
     return (
         <div>
