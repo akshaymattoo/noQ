@@ -5,6 +5,7 @@ const QrReader =  dynamic(() => import('react-qr-reader'),{ ssr: false })
 const Scan = () => {
      const [result,setResult] = useState('No result');
      const  handleScan = data => {
+       console.log(`data --- >${data}`)
         if (data) {
           setResult(data)
         }
