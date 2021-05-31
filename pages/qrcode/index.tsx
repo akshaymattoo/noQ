@@ -5,6 +5,8 @@ import {Flex,Heading,Input,Button,InputGroup,useColorModeValue,
   InputLeftElement,InputRightElement,Stack,
   NumberInput,NumberInputField,NumberInputStepper,NumberIncrementStepper,NumberDecrementStepper} from '@chakra-ui/react';
 import { useToast } from "@chakra-ui/react"
+import { Link } from "@chakra-ui/react"
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { PhoneIcon} from '@chakra-ui/icons';
 import Header from '../../components/Header';
 import styles from '../../styles/Home.module.css'
@@ -35,12 +37,17 @@ export default function Home() {
         url: `https://n0q.herokuapp.com/api/qrcodes`,
         data: {name:name,number:num,waitingTime:waitingTime}
       });
-      console.log(JSON.stringify(data,null,2));
+      //console.log(JSON.stringify(data,null,2));
       toast({
-        title: "Click the link for your code.",
         description: "You have a waiting time of "+waitingTime,
+        render: () => (
+          <Link href={`https://noq-orcin.vercel.app/qrcode/${data.data.code}`} isExternal>
+          Click here for your code.<ExternalLinkIcon mx="2px" />
+        </Link>
+        ),
         status: "success",
-        duration: 9000,
+        duration: 50000,
+        position:'top-right',
         isClosable: true,
       })
       router.push('/');
