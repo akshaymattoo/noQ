@@ -3,7 +3,9 @@ import dynamic from 'next/dynamic'
 const QrReader =  dynamic(() => import('react-qr-reader'),{ ssr: false })  
 
 const Scan = () => {
+   
      const [result,setResult] = useState('No result');
+     
      const  handleScan = data => {
        console.log(`data --- >${data}`)
         if (data) {
@@ -13,15 +15,18 @@ const Scan = () => {
      const handleError = err => {
         console.error(err)
       }
+      const props = {
+        "delay":300,
+        "onScan":handleScan,
+        "onError":handleError
+      }
     return (
         <div>
-          <QrReader
-         
-          {...handleError}
-          {...handleScan}
-          
-        />
-        <p>{result}</p>
+          <QrReader 
+          delay={300}
+          onScan={handleScan}
+          onError={handleError}/>
+          <p>{result}</p>
         </div>
     )
 }
