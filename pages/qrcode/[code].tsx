@@ -19,7 +19,9 @@ export default function Code({ data }) {
             </Head>
 
             <main className={styles.main}>
-            <QRCode value={`Name:${data.name}\nNumber:${data.number}\nWaitingTime:${data.waitingTime}`} />
+            <QRCode value={`Name:${data.name}
+            Number:${data.number}
+            WaitingTime:${data.waitingTime}`} />
             </main>
         </div>
     )
