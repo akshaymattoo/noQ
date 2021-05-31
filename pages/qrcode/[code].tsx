@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
-const QRCode = dynamic(() => import('react-qr-reader'),{ ssr: false })
+const QRCode =  dynamic(() => import("react-qr-code"),{ ssr: false })  
 import Header from '../../components/Header';
 import styles from '../../styles/Home.module.css'
 
@@ -19,7 +19,7 @@ export default function Code({ data }) {
             </Head>
 
             <main className={styles.main}>
-            <QRCode {...data} />
+            <QRCode value={`${data.name}${data.number}`} />
             </main>
         </div>
     )
