@@ -15,11 +15,7 @@ const Scan = () => {
      const handleError = err => {
         console.error(err)
       }
-      const props = {
-        "delay":300,
-        "onScan":handleScan,
-        "onError":handleError
-      }
+      
     return (
         <div>
           <QrReader 
