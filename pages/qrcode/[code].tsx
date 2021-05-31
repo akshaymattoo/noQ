@@ -10,7 +10,9 @@ export default function Code({ data }) {
 
     const router = useRouter()
     const { code } = router.query
-     
+    const qrCode = `Name:${data.name}
+    Number:${data.number}
+    WaitingTime:${data.waitingTime}`
     return (
         <div className={styles.container}>
         <Header/>
@@ -19,9 +21,7 @@ export default function Code({ data }) {
             </Head>
 
             <main className={styles.main}>
-            <QRCode value={`Name:${data.name}
-            Number:${data.number}
-            WaitingTime:${data.waitingTime}`} />
+            <QRCode value={qrCode} />
             </main>
         </div>
     )
