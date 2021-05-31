@@ -8,8 +8,6 @@ import styles from '../../styles/Home.module.css'
 
 export default function Code({ data }) {
 
-    const router = useRouter()
-    const { code } = router.query
     const qrCode = `Name:${data.name}
     Number:${data.number}
     WaitingTime:${data.waitingTime}`
