@@ -1,14 +1,16 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import QRCode from "react-qr-code"
+import dynamic from 'next/dynamic'
+const QRCode =  dynamic(() => import("react-qr-code"))  
 import Header from '../../components/Header';
 import styles from '../../styles/Home.module.css'
+
 
 export default function Code({ data }) {
 
     const router = useRouter()
     const { code } = router.query
-    console.log(code)
+     
     return (
         <div className={styles.container}>
         <Header/>
@@ -33,7 +35,7 @@ export async function getServerSideProps({ params }) {
     server = "https://n0q.herokuapp.com"*/
     const req = await fetch(`https://n0q.herokuapp.com/api/qrcodes/${params.code}`);
     const data = await req.json();
-    console.log(data);
+    
     return {
         props: { data: data },
     }
