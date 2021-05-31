@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
-const QRCode =  dynamic(() => import("react-qr-code"))  
+const QRCode = dynamic(() => import('react-qr-reader'),{ ssr: false })
 import Header from '../../components/Header';
 import styles from '../../styles/Home.module.css'
 
