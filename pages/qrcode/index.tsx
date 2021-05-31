@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {useRouter} from 'next/router';
 import axios from 'axios';
 import {Flex,Heading,Input,Button,InputGroup,useColorModeValue,
-  InputLeftElement,InputRightElement,Stack,
+  InputLeftElement,Stack,
   NumberInput,NumberInputField,NumberInputStepper,NumberIncrementStepper,NumberDecrementStepper} from '@chakra-ui/react';
 import { useToast } from "@chakra-ui/react"
 import { Link,Box } from "@chakra-ui/react"
@@ -49,7 +49,7 @@ export default function Home() {
         ),
         status: "success",
         duration: 50000,
-        position:'top-right',
+        position:'bottom-right',
         isClosable: true,
       })
       router.push('/');
