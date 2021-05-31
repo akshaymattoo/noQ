@@ -5,7 +5,7 @@ import {Flex,Heading,Input,Button,InputGroup,useColorModeValue,
   InputLeftElement,InputRightElement,Stack,
   NumberInput,NumberInputField,NumberInputStepper,NumberIncrementStepper,NumberDecrementStepper} from '@chakra-ui/react';
 import { useToast } from "@chakra-ui/react"
-import { Link } from "@chakra-ui/react"
+import { Link,Box } from "@chakra-ui/react"
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { PhoneIcon} from '@chakra-ui/icons';
 import Header from '../../components/Header';
@@ -41,9 +41,11 @@ export default function Home() {
       toast({
         description: "You have a waiting time of "+waitingTime,
         render: () => (
-          <Link href={`https://noq-orcin.vercel.app/qrcode/${data.data.code}`} isExternal>
-          Click here for your code.<ExternalLinkIcon mx="2px" />
-        </Link>
+          <Box color="white" p={3} bg="blue.500">
+            <Link href={`https://noq-orcin.vercel.app/qrcode/${data.data.code}`} isExternal>
+            Click here for your code.<ExternalLinkIcon mx="2px" />
+            </Link>
+          </Box>
         ),
         status: "success",
         duration: 50000,
